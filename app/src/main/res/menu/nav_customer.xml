@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_view_thumb"
+        android:title="Dashboard" />
+    <item
+        android:id="@+id/navigation_kategori"
+        android:icon="@drawable/ic_menu"
+        android:title="Kategori" />
+    <item
+        android:id="@+id/navigation_belanja"
+        android:icon="@drawable/ic_cart"
+        android:title="Belanja" />
+    <item
+        android:id="@+id/navigation_sampah"
+        android:icon="@drawable/ic_recycle"
+        android:title="Sampah" />
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_user"
+        android:title="Profile" />
+</menu>
