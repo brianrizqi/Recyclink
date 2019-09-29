@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="0dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtTrashHistoryDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp"
+            tools:text="3 Oktober 2019" />
+
+        <TextView
+            android:id="@+id/txtTrashHistoryWeight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTrashHistoryDate"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            tools:text="12 Kg" />
+
+        <TextView
+            android:id="@+id/txtTrashHistoryPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTrashHistoryDate"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            tools:text="Rp. 100.000" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

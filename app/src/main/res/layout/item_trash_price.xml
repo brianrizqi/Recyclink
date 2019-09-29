@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imgTrashPrice"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            tools:src="@color/colorPrimary" />
+
+        <TextView
+            android:id="@+id/txtTrashPriceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/imgTrashPrice"
+            android:fontFamily="@font/source_semi"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp"
+            tools:text="Judul" />
+
+        <TextView
+            android:id="@+id/txtTrashPriceCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTrashPriceTitle"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/imgTrashPrice"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            tools:text="Sampah Pelastik" />
+
+        <TextView
+            android:id="@+id/txtTrashPriceTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTrashPriceCategory"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/imgTrashPrice"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            tools:text="Rp. 5.000 / kg" />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

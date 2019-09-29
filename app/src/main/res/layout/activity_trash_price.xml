@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".Activities.TrashPrice">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:id="@+id/bg_green"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@color/colorWhite">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/source_bold"
+                android:text="Recyclink"
+                android:textColor="@color/colorPrimary"
+                android:textSize="30dp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/cloud"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="40dp"
+            android:src="@mipmap/cloud_green" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/bg_green"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTrashPrice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_trash_price">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

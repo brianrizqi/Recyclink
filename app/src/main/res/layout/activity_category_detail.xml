@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".Activities.CategoryDetail">
+
+    <TextView
+        android:id="@+id/txtCategoryDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/source_semi"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp"
+        tools:text="Pakaian" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/source_reg"
+        android:text="Rekomendasi"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_dashboard_recomend">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/source_reg"
+        android:text="Terpopuler"
+        android:textColor="@color/colorPrimary"
+        android:textSize="20dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvCategoryDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/item_dashboard_populer">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>
