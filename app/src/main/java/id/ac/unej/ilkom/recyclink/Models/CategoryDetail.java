@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
-public class DashboardPopuler implements Serializable {
+public class CategoryDetail implements Serializable {
     @SerializedName("id")
     int id;
     @SerializedName("img")
@@ -20,7 +20,7 @@ public class DashboardPopuler implements Serializable {
     @SerializedName("user")
     String user;
 
-    public DashboardPopuler(int id, int img, String title, String price, String rating, String desc, String user) {
+    public CategoryDetail(int id, int img, String title, String price, String rating, String desc, String user) {
         this.id = id;
         this.img = img;
         this.title = title;
@@ -28,14 +28,6 @@ public class DashboardPopuler implements Serializable {
         this.rating = rating;
         this.desc = desc;
         this.user = user;
-    }
-
-    public String getDesc() {
-        return desc;
-    }
-
-    public String getUser() {
-        return user;
     }
 
     public int getId() {
@@ -56,5 +48,13 @@ public class DashboardPopuler implements Serializable {
 
     public String getRating() {
         return rating;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public String getUser() {
+        return user;
     }
 }

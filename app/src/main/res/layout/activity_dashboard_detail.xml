@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".Activities.DashboardDetail">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite">
+
+            <ImageView
+                android:id="@+id/imgDashboardDetail"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                tools:src="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/txtDashboardDetailTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgDashboardDetail"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/source_semi"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                tools:text="Judul" />
+
+            <TextView
+                android:id="@+id/txtDashboardDetailUser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtDashboardDetailTitle"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/source_reg"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                tools:text="Toko" />
+
+            <TextView
+                android:id="@+id/txtDashboardDetailPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtDashboardDetailUser"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/source_reg"
+                android:textColor="@color/colorBlack"
+                android:textSize="18dp"
+                tools:text="Rp. 12.000" />
+
+            <RatingBar
+                android:id="@+id/ratingDashboardDetail"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/txtDashboardDetailPrice"
+                android:layout_marginLeft="10dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:isIndicator="true"
+                android:numStars="5"
+                android:rating="0"
+                android:scaleX=".5"
+                android:scaleY=".5"
+                android:stepSize="0.5"
+                android:transformPivotX="0dp"
+                android:transformPivotY="0dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ratingDashboardDetail"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/source_reg"
+                        android:text="Deskripsi"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:id="@+id/txtDashboardDetailDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/source_reg"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18dp"
+                        tools:text="Deskripsi" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        app:cardBackgroundColor="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/btnBuy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="80dp"
+                android:fontFamily="@font/source_reg"
+                android:text="Beli"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/btnCard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="50dp"
+                android:fontFamily="@font/source_reg"
+                android:text="Keranjang"
+                android:textAllCaps="true"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

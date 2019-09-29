@@ -1,6 +1,7 @@
 package id.ac.unej.ilkom.recyclink.Fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -47,9 +48,9 @@ public class DashboardFragment extends Fragment {
     private void populer() {
         rvDashboardPopuler.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         rvDashboardPopuler.setHasFixedSize(true);
-        list.add(new DashboardPopuler(1, R.mipmap.logo_green, "Judul", "10.000", "5"));
-        list.add(new DashboardPopuler(1, R.mipmap.logo_green, "Judul", "10.000", "5"));
-        list.add(new DashboardPopuler(1, R.mipmap.logo_green, "Judul", "10.000", "5"));
+        list.add(new DashboardPopuler(1, R.mipmap.logo_green, "Judul", "10.000", "5", "Lorem", "Daya Sakti"));
+        list.add(new DashboardPopuler(1, R.mipmap.logo_green, "Judul", "10.000", "3", "Lorem", "Daya Sakti"));
+        list.add(new DashboardPopuler(1, R.mipmap.logo_green, "Judul", "10.000", "5", "Lorem", "Daya Sakti"));
         adapter = new DashboardPopulerAdapter(getActivity(), list);
         rvDashboardPopuler.setAdapter(adapter);
         adapter.notifyDataSetChanged();

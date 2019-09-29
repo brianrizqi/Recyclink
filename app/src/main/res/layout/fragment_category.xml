@@ -77,6 +77,7 @@
                             app:cardCornerRadius="5dp">
 
                             <LinearLayout
+                                android:id="@+id/btnCategoryShirt"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -104,6 +105,7 @@
                             app:cardCornerRadius="5dp">
 
                             <LinearLayout
+                                android:id="@+id/btnCategoryDecoration"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -131,6 +133,7 @@
                             app:cardCornerRadius="5dp">
 
                             <LinearLayout
+                                android:id="@+id/btnCategoryBag"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -171,6 +174,7 @@
                             app:cardCornerRadius="5dp">
 
                             <LinearLayout
+                                android:id="@+id/btnCategoryFurniture"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -198,6 +202,7 @@
                             app:cardCornerRadius="5dp">
 
                             <LinearLayout
+                                android:id="@+id/btnCategoryAccessories"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
@@ -225,6 +230,7 @@
                             app:cardCornerRadius="5dp">
 
                             <LinearLayout
+                                android:id="@+id/btnCategoryOthers"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"

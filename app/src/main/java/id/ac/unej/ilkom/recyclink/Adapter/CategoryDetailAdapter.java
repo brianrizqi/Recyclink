@@ -1,8 +1,7 @@
 package id.ac.unej.ilkom.recyclink.Adapter;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,35 +13,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.io.Serializable;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.ac.unej.ilkom.recyclink.Activities.DashboardDetail;
-import id.ac.unej.ilkom.recyclink.Models.DashboardPopuler;
+import id.ac.unej.ilkom.recyclink.Models.CategoryDetail;
 import id.ac.unej.ilkom.recyclink.R;
 
-public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopulerAdapter.ViewHolder> {
-    private Activity activity;
-    private List<DashboardPopuler> list;
+public class CategoryDetailAdapter extends RecyclerView.Adapter<CategoryDetailAdapter.ViewHolder> {
+    private Context context;
+    private List<CategoryDetail> list;
 
-    public DashboardPopulerAdapter(Activity activity, List<DashboardPopuler> list) {
-        this.activity = activity;
+    public CategoryDetailAdapter(Context context, List<CategoryDetail> list) {
+        this.context = context;
         this.list = list;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        final View view = LayoutInflater.from(activity).inflate(R.layout.item_dashboard_populer, parent, false);
+        final View view = LayoutInflater.from(context).inflate(R.layout.item_dashboard_populer, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final DashboardPopuler post = list.get(position);
-        Glide.with(activity)
+        final CategoryDetail post = list.get(position);
+        Glide.with(context)
                 .load(post.getImg())
                 .into(holder.itemDashboardImgPopuler);
         holder.itemDashboardTitlePopuler.setText(post.getTitle());
@@ -51,9 +49,9 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(activity, DashboardDetail.class);
+                Intent i = new Intent(context, DashboardDetail.class);
                 i.putExtra("data", post);
-                activity.startActivity(i);
+                context.startActivity(i);
             }
         });
     }
@@ -78,5 +76,4 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
             ButterKnife.bind(this, itemView);
         }
     }
-
 }
