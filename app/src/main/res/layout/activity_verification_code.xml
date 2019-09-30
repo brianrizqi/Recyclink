@@ -7,7 +7,7 @@
     android:background="@color/colorWhite"
     android:orientation="vertical"
     android:padding="10dp"
-    tools:context=".Activities.Login">
+    tools:context=".Activities.VerificationCode">
 
     <ImageView
         android:layout_width="150dp"
@@ -26,23 +26,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/colorPrimary"
-            android:hint="Email atau Nama Pengguna"
+            android:hint="Kode Verifikasi"
             android:inputType="text" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:passwordToggleEnabled="true">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/colorPrimary"
-            android:hint="Password"
-            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <RelativeLayout
@@ -59,7 +44,7 @@
             app:cardElevation="0dp">
 
             <RelativeLayout
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnVerif"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -69,7 +54,7 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/source_reg"
-                    android:text="Masuk"
+                    android:text="Verif"
                     android:textColor="@color/colorWhite"
                     android:textSize="20dp" />
             </RelativeLayout>
@@ -84,7 +69,7 @@
             app:cardElevation="0dp">
 
             <RelativeLayout
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnCancel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
@@ -94,20 +79,10 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:fontFamily="@font/source_reg"
-                    android:text="Daftar"
+                    android:text="Batal"
                     android:textColor="@color/colorWhite"
                     android:textSize="20dp" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTransparant"
-        android:fontFamily="@font/source_reg"
-        android:text="Lupa Sandi?"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimary" />
-
 </LinearLayout>

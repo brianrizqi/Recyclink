@@ -43,7 +43,7 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final DashboardPopuler post = list.get(position);
         Glide.with(activity)
-                .load(post.getImg())
+                .load(post.getThumbnail())
                 .into(holder.itemDashboardImgPopuler);
         holder.itemDashboardTitlePopuler.setText(post.getTitle());
         holder.itemDashboardPricePopuler.setText("Rp. " + post.getPrice());

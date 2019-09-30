@@ -5,56 +5,149 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 
 public class DashboardPopuler implements Serializable {
-    @SerializedName("id")
-    int id;
-    @SerializedName("img")
-    int img;
-    @SerializedName("name")
-    String title;
+    @SerializedName("category_id")
+    private int categoryId;
+
+    @SerializedName("updated_at")
+    private String updatedAt;
+
+    @SerializedName("user_id")
+    private int userId;
+
     @SerializedName("price")
-    String price;
+    private int price;
+
     @SerializedName("rating")
-    String rating;
+    private Object rating;
+
     @SerializedName("description")
-    String desc;
-    @SerializedName("user")
-    String user;
+    private String description;
 
-    public DashboardPopuler(int id, int img, String title, String price, String rating, String desc, String user) {
-        this.id = id;
-        this.img = img;
-        this.title = title;
+    @SerializedName("created_at")
+    private String createdAt;
+
+    @SerializedName("thumbnail")
+    private String thumbnail;
+
+    @SerializedName("id")
+    private int id;
+
+    @SerializedName("title")
+    private String title;
+
+    @SerializedName("stock")
+    private int stock;
+
+    @SerializedName("deleted_at")
+    private Object deletedAt;
+
+    public String getThumbnail() {
+        return thumbnail;
+    }
+
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
+    }
+
+    public int getCategoryId() {
+        return categoryId;
+    }
+
+    public void setUpdatedAt(String updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setRating(Object rating) {
         this.rating = rating;
-        this.desc = desc;
-        this.user = user;
     }
 
-    public String getDesc() {
-        return desc;
+    public Object getRating() {
+        return rating;
     }
 
-    public String getUser() {
-        return user;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getId() {
         return id;
     }
 
-    public int getImg() {
-        return img;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public String getPrice() {
-        return price;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public String getRating() {
-        return rating;
+    public int getStock() {
+        return stock;
+    }
+
+    public void setDeletedAt(Object deletedAt) {
+        this.deletedAt = deletedAt;
+    }
+
+    public Object getDeletedAt() {
+        return deletedAt;
+    }
+
+    @Override
+    public String toString() {
+        return
+                "DashboardPopuler{" +
+                        "category_id = '" + categoryId + '\'' +
+                        ",updated_at = '" + updatedAt + '\'' +
+                        ",user_id = '" + userId + '\'' +
+                        ",price = '" + price + '\'' +
+                        ",rating = '" + rating + '\'' +
+                        ",description = '" + description + '\'' +
+                        ",created_at = '" + createdAt + '\'' +
+                        ",id = '" + id + '\'' +
+                        ",title = '" + title + '\'' +
+                        ",stock = '" + stock + '\'' +
+                        ",deleted_at = '" + deletedAt + '\'' +
+                        "}";
     }
 }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/txtMitraInvoiceItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="18dp"
+            tools:text="Nama" />
+
+        <TextView
+            android:id="@+id/txtMitraInvoiceItemAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtMitraInvoiceItemName"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            tools:text="Alamat pengiriman" />
+
+        <TextView
+            android:id="@+id/txtMitraInvoiceItemDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtMitraInvoiceItemAddress"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            tools:text="20 Oktober 2019" />
+
+        <TextView
+            android:id="@+id/txtMitraInvoiceItemStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtMitraInvoiceItemAddress"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorRed"
+            android:textSize="16dp"
+            tools:text="Selesai" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
