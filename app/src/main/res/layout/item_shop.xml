@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp"
+    app:cardBackgroundColor="@color/colorWhite"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/itemShopDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_reg"
+            android:textSize="18dp"
+            tools:text="3 Oktober 2019" />
+
+        <TextView
+            android:id="@+id/itemShopTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemShopDate"
+            android:fontFamily="@font/source_reg"
+            android:textSize="16dp"
+            tools:text="Bisma Kreatif" />
+
+        <TextView
+            android:id="@+id/itemShopStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemShopDate"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/source_reg"
+            android:textColor="@color/colorRed"
+            android:textSize="16dp"
+            tools:text="Selesai" />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
