@@ -36,12 +36,13 @@ public class DashboardDetail extends AppCompatActivity {
         ButterKnife.bind(this);
         DashboardPopuler data = (DashboardPopuler) getIntent().getSerializableExtra("data");
         Glide.with(this)
-                .load(data.getImg())
+                .load(data.getThumbnail())
                 .into(imgDashboardDetail);
         txtDashboardDetailTitle.setText(data.getTitle());
-        txtDashboardDetailDesc.setText(data.getDesc());
+        txtDashboardDetailDesc.setText(data.getDescription());
         txtDashboardDetailPrice.setText("Rp. " + data.getPrice());
-        txtDashboardDetailUser.setText(data.getUser());
-        ratingDashboardDetail.setRating(Float.valueOf(data.getRating()));
+//        txtDashboardDetailUser.setText(data.getUser().getName());
+                txtDashboardDetailUser.setText("");
+        ratingDashboardDetail.setRating(Float.valueOf(data.getRating() == null ? 0 : Float.valueOf(data.getRating())));
     }
 }

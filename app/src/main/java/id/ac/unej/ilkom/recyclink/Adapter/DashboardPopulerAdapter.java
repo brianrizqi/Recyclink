@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,15 +44,20 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final DashboardPopuler post = list.get(position);
         Glide.with(activity)
-                .load(post.getImg())
+                .load(post.getThumbnail())
                 .into(holder.itemDashboardImgPopuler);
         holder.itemDashboardTitlePopuler.setText(post.getTitle());
         holder.itemDashboardPricePopuler.setText("Rp. " + post.getPrice());
-        holder.itemDashboardRatingPopuler.setText("Rating : " + post.getRating());
+        if (post.getRating() == null || post.getRating() == "0") {
+            holder.itemDashboardRatingPopuler.setText("Rating : -");
+        } else {
+            holder.itemDashboardRatingPopuler.setText("Rating : " + post.getRating());
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(activity, DashboardDetail.class);
+                Toast.makeText(activity, post.getThumbnail(), Toast.LENGTH_SHORT).show();
                 i.putExtra("data", post);
                 activity.startActivity(i);
             }
