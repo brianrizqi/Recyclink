@@ -47,7 +47,11 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
                 .into(holder.itemDashboardImgPopuler);
         holder.itemDashboardTitlePopuler.setText(post.getTitle());
         holder.itemDashboardPricePopuler.setText("Rp. " + post.getPrice());
-        holder.itemDashboardRatingPopuler.setText("Rating : " + post.getRating());
+        if (post.getRating() == null) {
+            holder.itemDashboardRatingPopuler.setText("Rating : -");
+        } else {
+            holder.itemDashboardRatingPopuler.setText("Rating : " + post.getRating());
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

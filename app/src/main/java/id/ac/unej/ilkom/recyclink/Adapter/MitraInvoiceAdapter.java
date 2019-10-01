@@ -1,6 +1,7 @@
 package id.ac.unej.ilkom.recyclink.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import id.ac.unej.ilkom.recyclink.MitraInvoiceDetail;
 import id.ac.unej.ilkom.recyclink.Models.MitraInvoice;
 import id.ac.unej.ilkom.recyclink.R;
 
@@ -45,6 +47,13 @@ public class MitraInvoiceAdapter extends RecyclerView.Adapter<MitraInvoiceAdapte
         } else {
             holder.txtMitraInvoiceItemStatus.setText("Selesai");
         }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, MitraInvoiceDetail.class);
+                context.startActivity(i);
+            }
+        });
     }
 
     @Override
