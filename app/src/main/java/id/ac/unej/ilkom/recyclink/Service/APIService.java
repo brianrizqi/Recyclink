@@ -3,6 +3,8 @@ package id.ac.unej.ilkom.recyclink.Service;
 
 import java.io.File;
 
+import id.ac.unej.ilkom.recyclink.Models.CategoryDetail;
+import id.ac.unej.ilkom.recyclink.Models.ProductCategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.CategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DashboardPopulerResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DefaultResponse;
@@ -37,10 +39,16 @@ public interface APIService {
             @Header("token") String token
     );
 
+    @FormUrlEncoded
+    @POST("get-product-by-category")
+    Call<ProductCategoryResponse> productCategory(
+            @Header("token") String token,
+            @Field("category_id") String category
+    );
+
     @GET("product-category")
     Call<CategoryResponse> category();
 
-    @Multipart
     @FormUrlEncoded
     @POST("product")
     Call<DefaultResponse> productStore(
