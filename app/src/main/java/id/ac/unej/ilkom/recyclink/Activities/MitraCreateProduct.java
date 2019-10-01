@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,6 +37,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MitraCreateProduct extends AppCompatActivity {
+    
+    private static final String TAG = MitraCreateProduct.class.getSimpleName();
     @BindView(R.id.imgMitraCreateProduct)
     ImageView imgMitraCreateProduct;
     @BindView(R.id.etTitle)
@@ -123,34 +126,38 @@ public class MitraCreateProduct extends AppCompatActivity {
         String price = etPrice.getText().toString();
         String stock = etStock.getText().toString();
         String description = etDescription.getText().toString();
-        Toast.makeText(this, thumbnail+":"+title+":"+price+":"+stock+":"+description, Toast.LENGTH_SHORT).show();
-//        Call<DefaultResponse> call = Service
-//                .getInstance()
-//                .getAPI()
-//                .productStore(
-//                        tinyDB.getString("token"),
-//                        title,
-//                        category_id,
-//                        price,
-//                        stock,
-//                        thumbnail,
-//                        description
-//                );
-//        call.enqueue(new Callback<DefaultResponse>() {
-//            @Override
-//            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+//        Toast.makeText(this, thumbnail+":"+title+":"+price+":"+stock+":"+description, Toast.LENGTH_SHORT).show();
+        Call<DefaultResponse> call = Service
+                .getInstance()
+                .getAPI()
+                .productStore(
+                        tinyDB.getString("token"),
+                        title,
+                        category_id,
+                        price,
+                        stock,
+                        thumbnail,
+                        description
+                );
+        call.enqueue(new Callback<DefaultResponse>() {
+            @Override
+            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                Log.d(TAG, "onResponse: " + response.toString());
+                Log.d(TAG, "onResponse: Body : " + response.body());
+                Log.d(TAG, "onResponse: Message : " + response.message());
+                Log.d(TAG, "onResponse: Error : " + response.errorBody());
 //                if (response.isSuccessful()) {
 //                    onBackPressed();
 //                    finish();
 //                } else {
 //                    Toast.makeText(MitraCreateProduct.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
 //                }
-//            }
-//
-//            @Override
-//            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-//                Toast.makeText(MitraCreateProduct.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
+            }
+
+            @Override
+            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                Toast.makeText(MitraCreateProduct.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

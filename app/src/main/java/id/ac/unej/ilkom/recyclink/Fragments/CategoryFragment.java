@@ -49,7 +49,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), CategoryDetail.class);
-                i.putExtra("category", "shirt");
+                i.putExtra("category", 1);
                 getActivity().startActivity(i);
             }
         });
@@ -57,7 +57,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), CategoryDetail.class);
-                i.putExtra("category", "decoration");
+                i.putExtra("category", 2);
                 getActivity().startActivity(i);
             }
         });
@@ -65,7 +65,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), CategoryDetail.class);
-                i.putExtra("category", "bag");
+                i.putExtra("category", 3);
                 getActivity().startActivity(i);
             }
         });
@@ -73,7 +73,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), CategoryDetail.class);
-                i.putExtra("category", "furniture");
+                i.putExtra("category", 4);
                 getActivity().startActivity(i);
             }
         });
@@ -81,7 +81,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), CategoryDetail.class);
-                i.putExtra("category", "accessories");
+                i.putExtra("category", 5);
                 getActivity().startActivity(i);
             }
         });
@@ -89,7 +89,7 @@ public class CategoryFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(), CategoryDetail.class);
-                i.putExtra("category", "other");
+                i.putExtra("category", 6);
                 getActivity().startActivity(i);
             }
         });
