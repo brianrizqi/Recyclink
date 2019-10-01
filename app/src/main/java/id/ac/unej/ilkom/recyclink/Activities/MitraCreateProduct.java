@@ -26,6 +26,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.ac.unej.ilkom.recyclink.Models.Category;
+import id.ac.unej.ilkom.recyclink.Others.TinyDB;
 import id.ac.unej.ilkom.recyclink.R;
 import id.ac.unej.ilkom.recyclink.Responses.CategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DefaultResponse;
@@ -53,14 +54,29 @@ public class MitraCreateProduct extends AppCompatActivity {
     @BindView(R.id.btnStore)
     RelativeLayout btnStore;
     int category_id;
-    List<Category> list = new ArrayList<>();
+    TinyDB tinyDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mitra_create_product);
         ButterKnife.bind(this);
-        getCategory();
+        String[] items = new String[]{"Baju", "Celana", "Sepatu"};
+        String[] itemsId = new String[]{"1", "2", "3"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        spinCategory.setAdapter(adapter);
+        spinCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                category_id = Integer.parseInt(itemsId[position]);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        tinyDB = new TinyDB(this);
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,49 +89,9 @@ public class MitraCreateProduct extends AppCompatActivity {
         btnStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MitraCreateProduct.this, String.valueOf(category_id), Toast.LENGTH_SHORT).show();
                 store();
             }
         });
-    }
-
-    private void getCategory() {
-        Call<CategoryResponse> call = Service
-                .getInstance()
-                .getAPI()
-                .category();
-        call.enqueue(new Callback<CategoryResponse>() {
-            @Override
-            public void onResponse(Call<CategoryResponse> call, Response<CategoryResponse> response) {
-                list = response.body().getData();
-                ArrayAdapter<Category> adapter = new ArrayAdapter<Category>(getApplicationContext(),
-                        android.R.layout.simple_spinner_item, list);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                spinCategory.setAdapter(adapter);
-//                spinCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//                    @Override
-//                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                        Category category = (Category) spinCategory.getSelectedItem();
-//                        displayCategory(category);
-//                    }
-//
-//                    @Override
-//                    public void onNothingSelected(AdapterView<?> parent) {
-//
-//                    }
-//                });
-            }
-
-            @Override
-            public void onFailure(Call<CategoryResponse> call, Throwable t) {
-                Toast.makeText(MitraCreateProduct.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void displayCategory(Category category) {
-        category_id = category.getId();
     }
 
     private String imageToString(Bitmap bitmap) {
@@ -147,32 +123,34 @@ public class MitraCreateProduct extends AppCompatActivity {
         String price = etPrice.getText().toString();
         String stock = etStock.getText().toString();
         String description = etDescription.getText().toString();
-        Call<DefaultResponse> call = Service
-                .getInstance()
-                .getAPI()
-                .productStore(
-                        title,
-                        category_id,
-                        price,
-                        stock,
-                        thumbnail,
-                        description
-                );
-        call.enqueue(new Callback<DefaultResponse>() {
-            @Override
-            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                if (response.isSuccessful()) {
-                    onBackPressed();
-                    finish();
-                } else {
-                    Toast.makeText(MitraCreateProduct.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            }
-
-            @Override
-            public void onFailure(Call<DefaultResponse> call, Throwable t) {
-                Toast.makeText(MitraCreateProduct.this, t.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
+        Toast.makeText(this, thumbnail+":"+title+":"+price+":"+stock+":"+description, Toast.LENGTH_SHORT).show();
+//        Call<DefaultResponse> call = Service
+//                .getInstance()
+//                .getAPI()
+//                .productStore(
+//                        tinyDB.getString("token"),
+//                        title,
+//                        category_id,
+//                        price,
+//                        stock,
+//                        thumbnail,
+//                        description
+//                );
+//        call.enqueue(new Callback<DefaultResponse>() {
+//            @Override
+//            public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+//                if (response.isSuccessful()) {
+//                    onBackPressed();
+//                    finish();
+//                } else {
+//                    Toast.makeText(MitraCreateProduct.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//            @Override
+//            public void onFailure(Call<DefaultResponse> call, Throwable t) {
+//                Toast.makeText(MitraCreateProduct.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 }

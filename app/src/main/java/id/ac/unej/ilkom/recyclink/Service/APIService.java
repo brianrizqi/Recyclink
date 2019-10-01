@@ -12,6 +12,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 
 public interface APIService {
@@ -39,9 +40,11 @@ public interface APIService {
     @GET("product-category")
     Call<CategoryResponse> category();
 
+    @Multipart
     @FormUrlEncoded
-    @POST("product-store")
+    @POST("product")
     Call<DefaultResponse> productStore(
+            @Header("token") String auth,
             @Field("title") String title,
             @Field("category_id") int category_id,
             @Field("price") String price,

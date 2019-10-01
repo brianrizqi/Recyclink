@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="category">
+        <item>Baju</item>
+        <item>Celana</item>
+        <item>Sepatu</item>
+    </string-array>
+    <string-array name="intCategory">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+</resources>
