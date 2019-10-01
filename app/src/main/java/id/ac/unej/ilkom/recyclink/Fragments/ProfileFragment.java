@@ -22,6 +22,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import id.ac.unej.ilkom.recyclink.Activities.Login;
 import id.ac.unej.ilkom.recyclink.Activities.MitraCreateProduct;
 import id.ac.unej.ilkom.recyclink.Activities.MitraInvoices;
+import id.ac.unej.ilkom.recyclink.Activities.MitraProducts;
 import id.ac.unej.ilkom.recyclink.Others.TinyDB;
 import id.ac.unej.ilkom.recyclink.R;
 
@@ -78,7 +79,7 @@ public class ProfileFragment extends Fragment {
         btnMitraProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), MitraCreateProduct.class);
+                Intent i = new Intent(getActivity(), MitraProducts.class);
                 startActivity(i);
             }
         });

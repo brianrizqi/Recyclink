@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -35,7 +37,13 @@ public class MitraProductAdapter extends RecyclerView.Adapter<MitraProductAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        final MitraProduct post = list.get(position);
+        holder.txtTrashPriceTitle.setText(post.getName());
+        holder.txtTrashPriceCategory.setText(post.getCategory());
+        holder.txtTrashPriceTotal.setText(post.getPrice());
+        Glide.with(context)
+                .load(post.getImg())
+                .into(holder.imgTrashPrice);
     }
 
     @Override
