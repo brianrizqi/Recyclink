@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +48,7 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
                 .into(holder.itemDashboardImgPopuler);
         holder.itemDashboardTitlePopuler.setText(post.getTitle());
         holder.itemDashboardPricePopuler.setText("Rp. " + post.getPrice());
-        if (post.getRating() == null) {
+        if (post.getRating() == null || post.getRating() == "0") {
             holder.itemDashboardRatingPopuler.setText("Rating : -");
         } else {
             holder.itemDashboardRatingPopuler.setText("Rating : " + post.getRating());
@@ -56,6 +57,7 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(activity, DashboardDetail.class);
+                Toast.makeText(activity, post.getThumbnail(), Toast.LENGTH_SHORT).show();
                 i.putExtra("data", post);
                 activity.startActivity(i);
             }

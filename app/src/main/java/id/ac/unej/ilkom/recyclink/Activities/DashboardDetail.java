@@ -41,7 +41,8 @@ public class DashboardDetail extends AppCompatActivity {
         txtDashboardDetailTitle.setText(data.getTitle());
         txtDashboardDetailDesc.setText(data.getDescription());
         txtDashboardDetailPrice.setText("Rp. " + data.getPrice());
-        txtDashboardDetailUser.setText(data.getTitle());
-        ratingDashboardDetail.setRating(Float.valueOf(data.getRating() == null ? 0 : (Float) data.getRating()));
+//        txtDashboardDetailUser.setText(data.getUser().getName());
+                txtDashboardDetailUser.setText("");
+        ratingDashboardDetail.setRating(Float.valueOf(data.getRating() == null ? 0 : Float.valueOf(data.getRating())));
     }
 }

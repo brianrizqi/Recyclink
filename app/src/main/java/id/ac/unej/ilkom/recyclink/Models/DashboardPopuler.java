@@ -18,7 +18,7 @@ public class DashboardPopuler implements Serializable {
     private int price;
 
     @SerializedName("rating")
-    private Object rating;
+    private String rating;
 
     @SerializedName("description")
     private String description;
@@ -40,6 +40,7 @@ public class DashboardPopuler implements Serializable {
 
     @SerializedName("deleted_at")
     private Object deletedAt;
+
 
     public String getThumbnail() {
         return thumbnail;
@@ -77,11 +78,11 @@ public class DashboardPopuler implements Serializable {
         return price;
     }
 
-    public void setRating(Object rating) {
+    public void setRating(String rating) {
         this.rating = rating;
     }
 
-    public Object getRating() {
+    public String getRating() {
         return rating;
     }
 

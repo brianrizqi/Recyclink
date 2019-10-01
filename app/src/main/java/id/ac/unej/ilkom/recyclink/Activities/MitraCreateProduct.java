@@ -37,7 +37,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MitraCreateProduct extends AppCompatActivity {
-    
+
     private static final String TAG = MitraCreateProduct.class.getSimpleName();
     @BindView(R.id.imgMitraCreateProduct)
     ImageView imgMitraCreateProduct;
@@ -99,7 +99,7 @@ public class MitraCreateProduct extends AppCompatActivity {
 
     private String imageToString(Bitmap bitmap) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
         byte[] imgBytes = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(imgBytes, Base64.DEFAULT);
     }
@@ -110,10 +110,11 @@ public class MitraCreateProduct extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             Uri path = data.getData();
             try {
+//                Bundle extras = data.getExtras();
+//                bitmap = (Bitmap) extras.get("data");
                 bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
-                Glide.with(this)
-                        .load(bitmap)
-                        .into(imgMitraCreateProduct);
+                imgMitraCreateProduct.setImageBitmap(bitmap);
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -121,12 +122,12 @@ public class MitraCreateProduct extends AppCompatActivity {
     }
 
     private void store() {
-        String thumbnail = imageToString(bitmap);
-        String title = etTitle.getText().toString();
-        String price = etPrice.getText().toString();
-        String stock = etStock.getText().toString();
-        String description = etDescription.getText().toString();
-//        Toast.makeText(this, thumbnail+":"+title+":"+price+":"+stock+":"+description, Toast.LENGTH_SHORT).show();
+        String captureFile = imageToString(bitmap);
+        String title = etTitle.getText().toString().trim();
+        String price = etPrice.getText().toString().trim();
+        String stock = etStock.getText().toString().trim();
+//        String description = etDescription.getText().toString().trim();
+        String description = "coba";
         Call<DefaultResponse> call = Service
                 .getInstance()
                 .getAPI()
@@ -134,24 +135,21 @@ public class MitraCreateProduct extends AppCompatActivity {
                         tinyDB.getString("token"),
                         title,
                         category_id,
-                        price,
-                        stock,
-                        thumbnail,
+                        Integer.parseInt(price),
+                        Integer.parseInt(stock),
+                        captureFile,
                         description
                 );
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                Log.d(TAG, "onResponse: " + response.toString());
-                Log.d(TAG, "onResponse: Body : " + response.body());
-                Log.d(TAG, "onResponse: Message : " + response.message());
-                Log.d(TAG, "onResponse: Error : " + response.errorBody());
-//                if (response.isSuccessful()) {
-//                    onBackPressed();
-//                    finish();
-//                } else {
-//                    Toast.makeText(MitraCreateProduct.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
-//                }
+                if (response.isSuccessful()) {
+                    Toast.makeText(MitraCreateProduct.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    onBackPressed();
+                    finish();
+                } else {
+                    Toast.makeText(MitraCreateProduct.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

@@ -1,6 +1,8 @@
 package id.ac.unej.ilkom.recyclink.Service;
 
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 
 import id.ac.unej.ilkom.recyclink.Models.CategoryDetail;
@@ -16,6 +18,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 
 public interface APIService {
     @FormUrlEncoded
@@ -49,15 +52,15 @@ public interface APIService {
     @GET("product-category")
     Call<CategoryResponse> category();
 
-    @FormUrlEncoded
+    @Multipart
     @POST("product")
     Call<DefaultResponse> productStore(
             @Header("token") String auth,
-            @Field("title") String title,
-            @Field("category_id") int category_id,
-            @Field("price") String price,
-            @Field("stock") String stock,
-            @Field("thumbnail") String thumbnail,
-            @Field("description") String description
+            @Part("title") String title,
+            @Part("category_id") int category_id,
+            @Part("price") int price,
+            @Part("stock") int stock,
+            @Part("thumbnail") String thumbnail,
+            @Part("description") String description
     );
 }

@@ -52,7 +52,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <id.ac.unej.ilkom.recyclink.Others.CustomNetworkImageView
+            <ImageView
                 android:id="@+id/imgMitraCreateProduct"
                 android:layout_width="125dp"
                 android:layout_height="125dp"
