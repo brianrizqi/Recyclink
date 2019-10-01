@@ -16,8 +16,20 @@
             android:id="@+id/bg"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:background="@color/colorPrimary"
-            android:padding="10dp">
+            android:background="@color/colorPrimary">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/profile2" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#CC43A047">
+
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/txtProfileName"
