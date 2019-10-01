@@ -3,9 +3,13 @@ package id.ac.unej.ilkom.recyclink.Activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.FileUtils;
 import android.provider.MediaStore;
 import android.util.Base64;
 import android.util.Log;
@@ -21,6 +25,12 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,10 +38,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.ac.unej.ilkom.recyclink.Models.Category;
 import id.ac.unej.ilkom.recyclink.Others.TinyDB;
+import id.ac.unej.ilkom.recyclink.Others.UriHelper;
 import id.ac.unej.ilkom.recyclink.R;
 import id.ac.unej.ilkom.recyclink.Responses.CategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DefaultResponse;
 import id.ac.unej.ilkom.recyclink.Service.Service;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -58,6 +72,7 @@ public class MitraCreateProduct extends AppCompatActivity {
     RelativeLayout btnStore;
     int category_id;
     TinyDB tinyDB;
+    String filePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,8 +141,13 @@ public class MitraCreateProduct extends AppCompatActivity {
         String title = etTitle.getText().toString().trim();
         String price = etPrice.getText().toString().trim();
         String stock = etStock.getText().toString().trim();
-//        String description = etDescription.getText().toString().trim();
-        String description = "coba";
+        String description = etDescription.getText().toString().trim();
+
+        File file = createFile();
+        Log.d(TAG, "store: file : " + file.getAbsolutePath());
+        RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        MultipartBody.Part body = MultipartBody.Part.createFormData("thumbnail", file.getName(), requestFile);
+
         Call<DefaultResponse> call = Service
                 .getInstance()
                 .getAPI()
@@ -137,12 +157,15 @@ public class MitraCreateProduct extends AppCompatActivity {
                         category_id,
                         Integer.parseInt(price),
                         Integer.parseInt(stock),
-                        captureFile,
+                        body,
                         description
                 );
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
+                Log.d(TAG, "onResponse: " + response.toString());
+                Log.d(TAG, "onResponse: Body : " + response.body());
+                Log.d(TAG, "onResponse: Error : " + response.errorBody());
                 if (response.isSuccessful()) {
                     Toast.makeText(MitraCreateProduct.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                     onBackPressed();
@@ -154,8 +177,38 @@ public class MitraCreateProduct extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<DefaultResponse> call, Throwable t) {
+                Log.e(TAG, "onFailure: " + t.getMessage());
                 Toast.makeText(MitraCreateProduct.this, t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public File createFile() {
+        File f = new File(this.getCacheDir(), "temp");
+        try {
+            f.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100 /*ignored for PNG*/, bos);
+        byte[] bitmapdata = bos.toByteArray();
+
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            fos.write(bitmapdata);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return f;
     }
 }
