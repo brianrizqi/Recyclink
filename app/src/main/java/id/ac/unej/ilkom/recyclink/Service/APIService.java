@@ -39,6 +39,17 @@ public interface APIService {
             @Field("username") String username
     );
 
+    @FormUrlEncoded
+    @POST("order")
+    Call<DefaultResponse> order(
+            @Header("token") String token,
+            @Field("product_id") int product_id,
+            @Field("alamat") String address,
+            @Field("quantity") int quantity,
+            @Field("courier") String courier,
+            @Field("payment") String payment
+    );
+
     @GET("fav-products")
     Call<DashboardPopulerResponse> dashboardPopuler(
             @Header("token") String token

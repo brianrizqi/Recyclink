@@ -51,8 +51,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MitraCreateProduct extends AppCompatActivity {
-
-    private static final String TAG = MitraCreateProduct.class.getSimpleName();
+    public static final String TAG = "ProductInvoice";
+//    private static final String TAG = MitraCreateProduct.class.getSimpleName();
     @BindView(R.id.imgMitraCreateProduct)
     ImageView imgMitraCreateProduct;
     @BindView(R.id.etTitle)

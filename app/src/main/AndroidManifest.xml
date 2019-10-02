@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InvoiceCompleted"></activity>
+        <activity android:name=".InvoicePayment"></activity>
+        <activity android:name=".InvoiceCompleted" />
         <activity android:name=".Activities.ProductInvoice" />
         <activity android:name=".MitraInvoiceDetail" />
         <activity android:name=".Activities.MitraCreateProduct" />
