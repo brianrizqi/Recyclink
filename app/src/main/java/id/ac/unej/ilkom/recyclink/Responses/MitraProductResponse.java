@@ -1,17 +1,26 @@
-package id.ac.unej.ilkom.recyclink.Models;
+package id.ac.unej.ilkom.recyclink.Responses;
 
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
-public class Response{
-	private List<DataItem> data;
+import id.ac.unej.ilkom.recyclink.Models.MitraProduct;
+
+public class MitraProductResponse {
+
+	@SerializedName("data")
+	private List<MitraProduct> data;
+
+	@SerializedName("success")
 	private int success;
+
+	@SerializedName("message")
 	private String message;
 
-	public void setData(List<DataItem> data){
+	public void setData(List<MitraProduct> data){
 		this.data = data;
 	}
 
-	public List<DataItem> getData(){
+	public List<MitraProduct> getData(){
 		return data;
 	}
 
@@ -34,7 +43,7 @@ public class Response{
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"MitraProductResponse{" +
 			"data = '" + data + '\'' + 
 			",success = '" + success + '\'' + 
 			",message = '" + message + '\'' + 

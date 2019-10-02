@@ -57,7 +57,6 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(activity, DashboardDetail.class);
-                Toast.makeText(activity, post.getThumbnail(), Toast.LENGTH_SHORT).show();
                 i.putExtra("data", post);
                 activity.startActivity(i);
             }

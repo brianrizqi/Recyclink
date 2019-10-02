@@ -142,9 +142,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="50dp"
+                android:layout_marginRight="70dp"
                 android:fontFamily="@font/source_reg"
-                android:text="Keranjang"
+                android:text="Batal"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
                 android:textSize="20dp" />

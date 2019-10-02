@@ -5,9 +5,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,13 +13,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.ac.unej.ilkom.recyclink.Adapter.CategoryDetailAdapter;
-import id.ac.unej.ilkom.recyclink.Adapter.DashboardPopulerAdapter;
-import id.ac.unej.ilkom.recyclink.Models.DashboardPopuler;
-import id.ac.unej.ilkom.recyclink.Models.DataItem;
+import id.ac.unej.ilkom.recyclink.Models.MitraProduct;
 import id.ac.unej.ilkom.recyclink.Models.ProductCategoryResponse;
 import id.ac.unej.ilkom.recyclink.Others.TinyDB;
 import id.ac.unej.ilkom.recyclink.R;
-import id.ac.unej.ilkom.recyclink.Responses.DashboardPopulerResponse;
 import id.ac.unej.ilkom.recyclink.Service.Service;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -33,7 +28,7 @@ public class CategoryDetail extends AppCompatActivity {
     @BindView(R.id.rvCategoryDetail)
     RecyclerView rvCategoryDetail;
     CategoryDetailAdapter adapter;
-    List<DataItem> list = new ArrayList<>();
+    List<MitraProduct> list = new ArrayList<>();
 
     private static final String TAG = CategoryDetail.class.getSimpleName();
 

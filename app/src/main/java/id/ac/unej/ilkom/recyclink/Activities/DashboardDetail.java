@@ -2,7 +2,9 @@ package id.ac.unej.ilkom.recyclink.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -28,6 +30,8 @@ public class DashboardDetail extends AppCompatActivity {
     TextView txtDashboardDetailDesc;
     @BindView(R.id.ratingDashboardDetail)
     RatingBar ratingDashboardDetail;
+    @BindView(R.id.btnBuy)
+    TextView btnBuy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +46,15 @@ public class DashboardDetail extends AppCompatActivity {
         txtDashboardDetailDesc.setText(data.getDescription());
         txtDashboardDetailPrice.setText("Rp. " + data.getPrice());
 //        txtDashboardDetailUser.setText(data.getUser().getName());
-                txtDashboardDetailUser.setText("");
+        txtDashboardDetailUser.setText("");
         ratingDashboardDetail.setRating(Float.valueOf(data.getRating() == null ? 0 : Float.valueOf(data.getRating())));
+        btnBuy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(DashboardDetail.this, ProductInvoice.class);
+                i.putExtra("data", data);
+                startActivity(i);
+            }
+        });
     }
 }
