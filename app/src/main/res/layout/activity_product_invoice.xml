@@ -124,9 +124,25 @@
                         android:layout_marginRight="10dp">
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etAddress"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="Alamat" />
+                            android:hint="Alamat"
+                            android:inputType="text" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etQuantity"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="Jumlah"
+                            android:inputType="number" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
@@ -152,7 +168,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
-                        android:text="Pilih Pembayaran : "
+                        android:text="Pilih Pembayaran   : "
                         android:textSize="16sp" />
 
                     <Spinner
