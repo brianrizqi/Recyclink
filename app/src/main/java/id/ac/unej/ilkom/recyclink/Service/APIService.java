@@ -11,6 +11,8 @@ import id.ac.unej.ilkom.recyclink.Responses.CategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DashboardPopulerResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DefaultResponse;
 import id.ac.unej.ilkom.recyclink.Responses.LoginResponse;
+import id.ac.unej.ilkom.recyclink.Responses.MitraProductResponse;
+import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -49,6 +51,11 @@ public interface APIService {
             @Field("category_id") String category
     );
 
+    @GET("my-products")
+    Call<MitraProductResponse> mitraProduct(
+            @Header("token") String token
+    );
+
     @GET("product-category")
     Call<CategoryResponse> category();
 
@@ -60,7 +67,7 @@ public interface APIService {
             @Part("category_id") int category_id,
             @Part("price") int price,
             @Part("stock") int stock,
-            @Part("thumbnail") String thumbnail,
+            @Part MultipartBody.Part thumbnail,
             @Part("description") String description
     );
 }

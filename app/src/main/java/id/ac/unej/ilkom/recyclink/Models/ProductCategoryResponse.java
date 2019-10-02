@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class ProductCategoryResponse{
 
 	@SerializedName("data")
-	private List<DataItem> data;
+	private List<MitraProduct> data;
 
 	@SerializedName("success")
 	private int success;
@@ -14,11 +14,11 @@ public class ProductCategoryResponse{
 	@SerializedName("message")
 	private String message;
 
-	public void setData(List<DataItem> data){
+	public void setData(List<MitraProduct> data){
 		this.data = data;
 	}
 
-	public List<DataItem> getData(){
+	public List<MitraProduct> getData(){
 		return data;
 	}
 

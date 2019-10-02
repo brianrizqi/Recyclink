@@ -19,14 +19,13 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.ac.unej.ilkom.recyclink.Activities.DashboardDetail;
-import id.ac.unej.ilkom.recyclink.Models.CategoryDetail;
-import id.ac.unej.ilkom.recyclink.Models.DataItem;
+import id.ac.unej.ilkom.recyclink.Models.MitraProduct;
 import id.ac.unej.ilkom.recyclink.R;
 
 public class CategoryDetailAdapter extends RecyclerView.Adapter<CategoryDetailAdapter.ViewHolder> {
     private static final String TAG = CategoryDetailAdapter.class.getSimpleName();
     private Context context;
-    private List<DataItem> list;
+    private List<MitraProduct> list;
 
     public CategoryDetailAdapter(Context context) {
         this.context = context;
@@ -42,7 +41,7 @@ public class CategoryDetailAdapter extends RecyclerView.Adapter<CategoryDetailAd
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: KONTOL");
-        final DataItem post = list.get(position);
+        final MitraProduct post = list.get(position);
         Glide.with(context)
                 .load(post.getThumbnail())
                 .into(holder.itemDashboardImgPopuler);
@@ -64,7 +63,7 @@ public class CategoryDetailAdapter extends RecyclerView.Adapter<CategoryDetailAd
         return list.size();
     }
 
-    public void setList(List<DataItem> list) {
+    public void setList(List<MitraProduct> list) {
         this.list = list;
     }
 

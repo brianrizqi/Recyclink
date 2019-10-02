@@ -38,11 +38,11 @@ public class MitraProductAdapter extends RecyclerView.Adapter<MitraProductAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MitraProduct post = list.get(position);
-        holder.txtTrashPriceTitle.setText(post.getName());
-        holder.txtTrashPriceCategory.setText(post.getCategory());
-        holder.txtTrashPriceTotal.setText(post.getPrice());
+        holder.txtTrashPriceTitle.setText(post.getTitle());
+//        holder.txtTrashPriceCategory.setText(post.getCategory());
+        holder.txtTrashPriceTotal.setText(String.valueOf(post.getPrice()));
         Glide.with(context)
-                .load(post.getImg())
+                .load(post.getThumbnail())
                 .into(holder.imgTrashPrice);
     }
 
