@@ -1,20 +1,25 @@
-package id.ac.unej.ilkom.recyclink.Models;
+package id.ac.unej.ilkom.recyclink.Others;
 
 import com.google.gson.annotations.SerializedName;
 
-public class TrashHistory {
+import java.io.Serializable;
+
+public class ProductOrdersItem implements Serializable {
+
+	@SerializedName("product")
+	private Product product;
 
 	@SerializedName("quantity")
 	private int quantity;
 
-	@SerializedName("total_price")
-	private int totalPrice;
-
 	@SerializedName("updated_at")
 	private String updatedAt;
 
-	@SerializedName("user_id")
-	private int userId;
+	@SerializedName("product_id")
+	private int productId;
+
+	@SerializedName("invoice_id")
+	private int invoiceId;
 
 	@SerializedName("created_at")
 	private String createdAt;
@@ -25,8 +30,13 @@ public class TrashHistory {
 	@SerializedName("deleted_at")
 	private Object deletedAt;
 
-	@SerializedName("status")
-	private int status;
+	public void setProduct(Product product){
+		this.product = product;
+	}
+
+	public Product getProduct(){
+		return product;
+	}
 
 	public void setQuantity(int quantity){
 		this.quantity = quantity;
@@ -34,14 +44,6 @@ public class TrashHistory {
 
 	public int getQuantity(){
 		return quantity;
-	}
-
-	public void setTotalPrice(int totalPrice){
-		this.totalPrice = totalPrice;
-	}
-
-	public int getTotalPrice(){
-		return totalPrice;
 	}
 
 	public void setUpdatedAt(String updatedAt){
@@ -52,12 +54,20 @@ public class TrashHistory {
 		return updatedAt;
 	}
 
-	public void setUserId(int userId){
-		this.userId = userId;
+	public void setProductId(int productId){
+		this.productId = productId;
 	}
 
-	public int getUserId(){
-		return userId;
+	public int getProductId(){
+		return productId;
+	}
+
+	public void setInvoiceId(int invoiceId){
+		this.invoiceId = invoiceId;
+	}
+
+	public int getInvoiceId(){
+		return invoiceId;
 	}
 
 	public void setCreatedAt(String createdAt){
@@ -84,26 +94,18 @@ public class TrashHistory {
 		return deletedAt;
 	}
 
-	public void setStatus(int status){
-		this.status = status;
-	}
-
-	public int getStatus(){
-		return status;
-	}
-
 	@Override
  	public String toString(){
 		return 
-			"TrashHistory{" +
-			"quantity = '" + quantity + '\'' + 
-			",total_price = '" + totalPrice + '\'' + 
+			"ProductOrdersItem{" + 
+			"product = '" + product + '\'' + 
+			",quantity = '" + quantity + '\'' + 
 			",updated_at = '" + updatedAt + '\'' + 
-			",user_id = '" + userId + '\'' + 
+			",product_id = '" + productId + '\'' + 
+			",invoice_id = '" + invoiceId + '\'' + 
 			",created_at = '" + createdAt + '\'' + 
 			",id = '" + id + '\'' + 
 			",deleted_at = '" + deletedAt + '\'' + 
-			",status = '" + status + '\'' + 
 			"}";
 		}
 }

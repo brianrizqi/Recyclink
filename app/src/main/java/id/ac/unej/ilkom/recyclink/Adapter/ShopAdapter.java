@@ -37,11 +37,11 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final Shop post = list.get(position);
-        holder.itemShopDate.setText(post.getCreated_at());
-        holder.itemShopTitle.setText(post.getTitle());
-        if (post.getStatus().equalsIgnoreCase("0")) {
+        holder.itemShopDate.setText(post.getCreatedAt());
+        holder.itemShopTitle.setText("Pesanan #" + post.getId());
+        if (post.getStatus() == 1) {
             holder.itemShopStatus.setText("Menunggu");
-        } else if (post.getStatus().equalsIgnoreCase("1")) {
+        } else if (post.getStatus() == 2) {
             holder.itemShopStatus.setText("Dalam Proses");
         } else {
             holder.itemShopStatus.setText("Selesai");
@@ -50,6 +50,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(activity, ShopDetail.class);
+                i.putExtra("data", post);
                 activity.startActivity(i);
             }
         });

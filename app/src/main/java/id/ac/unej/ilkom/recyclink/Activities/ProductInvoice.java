@@ -19,8 +19,6 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import id.ac.unej.ilkom.recyclink.InvoiceCompleted;
-import id.ac.unej.ilkom.recyclink.InvoicePayment;
 import id.ac.unej.ilkom.recyclink.Models.DashboardPopuler;
 import id.ac.unej.ilkom.recyclink.Others.TinyDB;
 import id.ac.unej.ilkom.recyclink.R;
@@ -130,15 +128,11 @@ public class ProductInvoice extends AppCompatActivity {
         call.enqueue(new Callback<DefaultResponse>() {
             @Override
             public void onResponse(Call<DefaultResponse> call, Response<DefaultResponse> response) {
-                Log.d(TAG, "onResponse: " + response.toString());
-                Log.d(TAG, "onResponse: Error : " + response.errorBody());
-                Log.d(TAG, "onResponse: Body : " + response.body());
-                if (response.isSuccessful()) {
-                    Intent i = new Intent(ProductInvoice.this, InvoicePayment.class);
+                Log.d(TAG, "Message :"+response.body().getMessage());
+                if (response.body().getSuccess() == 1) {
+                    Intent i = new Intent(getApplicationContext(), InvoicePayment.class);
                     startActivity(i);
                     finish();
-                } else {
-                    Toast.makeText(ProductInvoice.this, response.message(), Toast.LENGTH_SHORT).show();
                 }
             }
 

@@ -1,17 +1,16 @@
 package id.ac.unej.ilkom.recyclink.Service;
 
 
-import org.w3c.dom.Text;
-
-import java.io.File;
-
-import id.ac.unej.ilkom.recyclink.Models.CategoryDetail;
 import id.ac.unej.ilkom.recyclink.Models.ProductCategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.CategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DashboardPopulerResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DefaultResponse;
 import id.ac.unej.ilkom.recyclink.Responses.LoginResponse;
+import id.ac.unej.ilkom.recyclink.Responses.MitraInvoiceResponse;
 import id.ac.unej.ilkom.recyclink.Responses.MitraProductResponse;
+import id.ac.unej.ilkom.recyclink.Responses.ShopResponse;
+import id.ac.unej.ilkom.recyclink.Responses.TrashHistoryResponse;
+import id.ac.unej.ilkom.recyclink.Responses.TrashSellingResponse;
 import okhttp3.MultipartBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -55,6 +54,11 @@ public interface APIService {
             @Header("token") String token
     );
 
+    @GET("new-products")
+    Call<DashboardPopulerResponse> dashboardRekomend(
+            @Header("token") String token
+    );
+
     @FormUrlEncoded
     @POST("get-product-by-category")
     Call<ProductCategoryResponse> productCategory(
@@ -80,5 +84,48 @@ public interface APIService {
             @Part("stock") int stock,
             @Part MultipartBody.Part thumbnail,
             @Part("description") String description
+    );
+
+    @GET("my-order")
+    Call<ShopResponse> myOrder(
+            @Header("token") String token
+    );
+
+    @GET("my-product-order")
+    Call<MitraInvoiceResponse> mitraInvoice(
+            @Header("token") String token
+    );
+
+    @GET("recycle-category")
+    Call<TrashSellingResponse> trashSelling(
+            @Header("token") String token
+    );
+
+    @GET("my-recycle-order")
+    Call<TrashHistoryResponse> getTrashHistory(
+            @Header("token") String token
+    );
+
+    @FormUrlEncoded
+    @POST("recycle")
+    Call<DefaultResponse> sell(
+            @Header("token") String token,
+            @Field("total_price") int total_price,
+            @Field("total_weight") int total_weight
+    );
+
+    @FormUrlEncoded
+    @POST("confirm-order")
+    Call<DefaultResponse> confirmResi(
+            @Header("token") String token,
+            @Field("order_id") int order_id,
+            @Field("resi") String resi
+    );
+
+    @FormUrlEncoded
+    @POST("confirm-order-buyer")
+    Call<DefaultResponse> confirmBuyer(
+            @Header("token") String token,
+            @Field("order_id") int order_id
     );
 }

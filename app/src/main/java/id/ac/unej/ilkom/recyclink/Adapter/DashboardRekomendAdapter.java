@@ -2,21 +2,17 @@ package id.ac.unej.ilkom.recyclink.Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -25,11 +21,11 @@ import id.ac.unej.ilkom.recyclink.Activities.DashboardDetail;
 import id.ac.unej.ilkom.recyclink.Models.DashboardPopuler;
 import id.ac.unej.ilkom.recyclink.R;
 
-public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopulerAdapter.ViewHolder> {
+public class DashboardRekomendAdapter extends RecyclerView.Adapter<DashboardRekomendAdapter.ViewHolder> {
     private Activity activity;
     private List<DashboardPopuler> list;
 
-    public DashboardPopulerAdapter(Activity activity, List<DashboardPopuler> list) {
+    public DashboardRekomendAdapter(Activity activity, List<DashboardPopuler> list) {
         this.activity = activity;
         this.list = list;
     }
@@ -84,11 +80,4 @@ public class DashboardPopulerAdapter extends RecyclerView.Adapter<DashboardPopul
             ButterKnife.bind(this, itemView);
         }
     }
-
-    public void setFilter(ArrayList<DashboardPopuler> filterList){
-        list = new ArrayList<>();
-        list.addAll(filterList);
-        notifyDataSetChanged();
-    }
-
 }

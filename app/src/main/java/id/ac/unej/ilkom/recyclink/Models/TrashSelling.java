@@ -3,42 +3,71 @@ package id.ac.unej.ilkom.recyclink.Models;
 import com.google.gson.annotations.SerializedName;
 
 public class TrashSelling {
-    @SerializedName("id")
-    int id;
-    @SerializedName("img")
-    int img;
-    @SerializedName("name")
-    String name;
-    @SerializedName("category")
-    String category;
-    @SerializedName("weight")
-    String weight;
 
-    public TrashSelling(int id, int img, String name, String category, String weight) {
-        this.id = id;
-        this.img = img;
-        this.name = name;
-        this.category = category;
-        this.weight = weight;
-    }
+	@SerializedName("thumbnail")
+	private String thumbnail;
 
-    public int getId() {
-        return id;
-    }
+	@SerializedName("price")
+	private int price;
 
-    public int getImg() {
-        return img;
-    }
+	@SerializedName("id")
+	private int id;
 
-    public String getName() {
-        return name;
-    }
+	@SerializedName("category")
+	private String category;
 
-    public String getCategory() {
-        return category;
-    }
+	@SerializedName("title")
+	private String title;
 
-    public String getWeight() {
-        return weight;
-    }
+	public void setThumbnail(String thumbnail){
+		this.thumbnail = thumbnail;
+	}
+
+	public String getThumbnail(){
+		return thumbnail;
+	}
+
+	public void setPrice(int price){
+		this.price = price;
+	}
+
+	public int getPrice(){
+		return price;
+	}
+
+	public void setId(int id){
+		this.id = id;
+	}
+
+	public int getId(){
+		return id;
+	}
+
+	public void setCategory(String category){
+		this.category = category;
+	}
+
+	public String getCategory(){
+		return category;
+	}
+
+	public void setTitle(String title){
+		this.title = title;
+	}
+
+	public String getTitle(){
+		return title;
+	}
+
+	@Override
+ 	public String toString(){
+		return 
+			"TrashSelling{" +
+			"thumbnail = '" + thumbnail + '\'' + 
+			",price = '" + price + '\'' + 
+			",id = '" + id + '\'' + 
+			",category = '" + category + '\'' + 
+			",title = '" + title + '\'' + 
+			"}";
+		}
 }
