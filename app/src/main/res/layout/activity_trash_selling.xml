@@ -51,19 +51,38 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:listitem="@layout/item_trash_selling">
+                tools:listitem="@layout/item_trash_selling"
+                tools:itemCount="1">
 
             </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/source_reg"
+                android:text="Total Berat"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/txtTrashSellingWeight"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:fontFamily="@font/source_reg"
+                android:text="0"
+                android:textColor="@color/colorWhite"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:fontFamily="@font/source_reg"
+                android:text="Total Harga"
                 android:textColor="@color/colorWhite"
-                android:textSize="18dp"
-                tools:text="Total Berat = 12/kg" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/txtTrashSellingTotal"
@@ -71,9 +90,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:fontFamily="@font/source_reg"
+                android:text="0"
                 android:textColor="@color/colorWhite"
-                android:textSize="18dp"
-                tools:text="Total Harga = Rp. 60.000" />
+                android:textSize="18dp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="200dp"
@@ -85,6 +104,7 @@
                 app:cardElevation="0dp">
 
                 <RelativeLayout
+                    android:id="@+id/btnSell"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/colorWhite"

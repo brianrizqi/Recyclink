@@ -1,4 +1,4 @@
-package id.ac.unej.ilkom.recyclink;
+package id.ac.unej.ilkom.recyclink.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import id.ac.unej.ilkom.recyclink.Activities.Customer;
-import id.ac.unej.ilkom.recyclink.Activities.MainActivity;
+import id.ac.unej.ilkom.recyclink.R;
 
 public class InvoiceCompleted extends AppCompatActivity {
     private static int splashInterval = 3000;
