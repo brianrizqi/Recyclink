@@ -1,7 +1,9 @@
 package id.ac.unej.ilkom.recyclink.Service;
 
 
+import id.ac.unej.ilkom.recyclink.Models.GetUserResponse;
 import id.ac.unej.ilkom.recyclink.Models.ProductCategoryResponse;
+import id.ac.unej.ilkom.recyclink.Models.User;
 import id.ac.unej.ilkom.recyclink.Responses.CategoryResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DashboardPopulerResponse;
 import id.ac.unej.ilkom.recyclink.Responses.DefaultResponse;
@@ -127,5 +129,19 @@ public interface APIService {
     Call<DefaultResponse> confirmBuyer(
             @Header("token") String token,
             @Field("order_id") int order_id
+    );
+
+    @GET("profile")
+    Call<GetUserResponse> getUser(
+            @Header("token") String token
+    );
+
+    @FormUrlEncoded
+    @POST("profile")
+    Call<DefaultResponse> updateProfile(
+            @Header("token") String token,
+            @Field("name") String name,
+            @Field("username") String username,
+            @Field("email") String email
     );
 }

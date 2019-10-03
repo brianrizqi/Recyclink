@@ -263,6 +263,7 @@
                     android:tint="@color/colorPrimary" />
 
                 <RelativeLayout
+                    android:id="@+id/btn_settings"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
@@ -284,6 +285,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/btn_about"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:layout_marginTop="10dp"

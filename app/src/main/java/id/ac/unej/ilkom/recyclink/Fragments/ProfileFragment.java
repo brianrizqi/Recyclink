@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -19,10 +20,12 @@ import com.bumptech.glide.Glide;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
+import id.ac.unej.ilkom.recyclink.Activities.Bantuan;
 import id.ac.unej.ilkom.recyclink.Activities.Login;
 import id.ac.unej.ilkom.recyclink.Activities.MitraCreateProduct;
 import id.ac.unej.ilkom.recyclink.Activities.MitraInvoices;
 import id.ac.unej.ilkom.recyclink.Activities.MitraProducts;
+import id.ac.unej.ilkom.recyclink.Activities.Setting;
 import id.ac.unej.ilkom.recyclink.Others.TinyDB;
 import id.ac.unej.ilkom.recyclink.R;
 
@@ -49,8 +52,12 @@ public class ProfileFragment extends Fragment {
     CircleImageView imgProfile;
     @BindView(R.id.btnMitraProduct)
     RelativeLayout btnMitraProduct;
+    @BindView(R.id.btn_settings)
+    RelativeLayout btnSetting;
     @BindView(R.id.btnInvoices)
     RelativeLayout btnInvoices;
+    @BindView(R.id.btn_about)
+    RelativeLayout btnAbout;
     TinyDB tinyDB;
 
     public ProfileFragment() {
@@ -97,6 +104,22 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 logout();
+            }
+        });
+
+        btnSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Setting.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), Bantuan.class);
+                startActivity(intent);
             }
         });
         return view;
