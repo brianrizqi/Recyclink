@@ -12,26 +12,50 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import id.ac.unej.ilkom.recyclink.Adapter.TrashHistoryAdapter;
+import id.ac.unej.ilkom.recyclink.Others.TinyDB;
 import id.ac.unej.ilkom.recyclink.R;
+import id.ac.unej.ilkom.recyclink.Responses.TrashHistoryResponse;
+import id.ac.unej.ilkom.recyclink.Service.Service;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class TrashHistory extends AppCompatActivity {
     @BindView(R.id.rvTrashHistory)
     RecyclerView rvTrashHistory;
     TrashHistoryAdapter adapter;
     List<id.ac.unej.ilkom.recyclink.Models.TrashHistory> list = new ArrayList<>();
+    TinyDB tinyDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trash_history);
         ButterKnife.bind(this);
+        tinyDB = new TinyDB(this);
         rvTrashHistory.setLayoutManager(new LinearLayoutManager(this));
         rvTrashHistory.setHasFixedSize(true);
-        list.add(new id.ac.unej.ilkom.recyclink.Models.TrashHistory(1, "3 Oktober 2019", "2", "10.000"));
-        list.add(new id.ac.unej.ilkom.recyclink.Models.TrashHistory(1, "3 Oktober 2019", "2", "10.000"));
-        list.add(new id.ac.unej.ilkom.recyclink.Models.TrashHistory(1, "3 Oktober 2019", "2", "10.000"));
-        adapter = new TrashHistoryAdapter(this, list);
-        rvTrashHistory.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+        trashHistory(tinyDB.getString("token"));
+    }
+
+    private void trashHistory(String token) {
+        Call<TrashHistoryResponse> call = Service
+                .getInstance()
+                .getAPI()
+                .getTrashHistory(token);
+        call.enqueue(new Callback<TrashHistoryResponse>() {
+            @Override
+            public void onResponse(Call<TrashHistoryResponse> call, Response<TrashHistoryResponse> response) {
+                list = response.body().getData();
+                adapter = new TrashHistoryAdapter(getApplicationContext(), list);
+                rvTrashHistory.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<TrashHistoryResponse> call, Throwable t) {
+
+            }
+        });
     }
 }

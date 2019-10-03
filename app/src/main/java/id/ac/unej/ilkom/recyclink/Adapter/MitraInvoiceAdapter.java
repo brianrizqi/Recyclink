@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,7 +15,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import id.ac.unej.ilkom.recyclink.MitraInvoiceDetail;
+import id.ac.unej.ilkom.recyclink.Activities.MitraInvoiceDetail;
 import id.ac.unej.ilkom.recyclink.Models.MitraInvoice;
 import id.ac.unej.ilkom.recyclink.R;
 
@@ -37,12 +38,12 @@ public class MitraInvoiceAdapter extends RecyclerView.Adapter<MitraInvoiceAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final MitraInvoice post = list.get(position);
-        holder.txtMitraInvoiceItemName.setText(post.getName());
-        holder.txtMitraInvoiceItemAddress.setText(post.getAddress());
-        holder.txtMitraInvoiceItemDate.setText(post.getDate());
-        if (post.getStatus() == 0) {
+        holder.txtMitraInvoiceItemName.setText("Pesanan #" + post.getId());
+        holder.txtMitraInvoiceItemAddress.setText(post.getAlamat());
+        holder.txtMitraInvoiceItemDate.setText(post.getCreatedAt());
+        if (post.getStatus() == 1) {
             holder.txtMitraInvoiceItemStatus.setText("Belum Diproses");
-        } else if (post.getStatus() == 1) {
+        } else if (post.getStatus() == 2) {
             holder.txtMitraInvoiceItemStatus.setText("Dalam Pengiriman");
         } else {
             holder.txtMitraInvoiceItemStatus.setText("Selesai");
@@ -50,8 +51,13 @@ public class MitraInvoiceAdapter extends RecyclerView.Adapter<MitraInvoiceAdapte
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, MitraInvoiceDetail.class);
-                context.startActivity(i);
+                if (post.getStatus() == 1) {
+                    Intent i = new Intent(context, MitraInvoiceDetail.class);
+                    i.putExtra("data", post);
+                    context.startActivity(i);
+                } else {
+                    Toast.makeText(context, "Barang telah dikirim", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

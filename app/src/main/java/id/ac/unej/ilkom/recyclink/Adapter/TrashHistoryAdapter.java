@@ -35,9 +35,9 @@ public class TrashHistoryAdapter extends RecyclerView.Adapter<TrashHistoryAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final TrashHistory post = list.get(position);
-        holder.txtTrashHistoryDate.setText(post.getDate());
-        holder.txtTrashHistoryWeight.setText(post.getWeight() + " /kg");
-        holder.txtTrashHistoryPrice.setText("Rp. " + post.getPrice());
+        holder.txtTrashHistoryDate.setText(post.getCreatedAt());
+        holder.txtTrashHistoryWeight.setText(post.getQuantity() + " /kg");
+        holder.txtTrashHistoryPrice.setText("Rp. " + post.getTotalPrice());
     }
 
     @Override

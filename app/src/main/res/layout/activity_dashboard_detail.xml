@@ -75,6 +75,7 @@
                 android:transformPivotY="0dp" />
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/cardDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/ratingDashboardDetail"
@@ -110,6 +111,67 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cardDesc"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardBackgroundColor="@color/colorWhite"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/source_reg"
+                        android:text="Komentar"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/source_semi"
+                        android:text="Diah"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/source_reg"
+                        android:text="Bagus Sekali"
+                        android:textSize="16dp" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/source_semi"
+                        android:text="Masif"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="18dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="@font/source_reg"
+                        android:text="Rekomended"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
         </RelativeLayout>
     </ScrollView>
 
@@ -142,9 +204,9 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="70dp"
+                android:layout_marginRight="50dp"
                 android:fontFamily="@font/source_reg"
-                android:text="Batal"
+                android:text="Chat ke Toko"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
                 android:textSize="20dp" />
