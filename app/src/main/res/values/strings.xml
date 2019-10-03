@@ -3,4 +3,24 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">
+        Recyclink adalah aplikasi kreasi ana bangsa yang akan diikutkan Gemastik 12. berikut adalah dokumentasi cara penggunaan  recyclink.
+    </string>
+    <string name="about_1">
+        1. Menu Recyclink adalah menu home yang berisi rekomendasi, barang terpopuler.
+            - Rekomendasi adalah barang dipromosikan oleh pihak mitra dengan cara request kepada admin
+            - Terpopuler adalah barang yang memiliki penjualan tertinggi dalam 1 minggu terakhir
+    </string>
+    <string name="about_2">
+        2. Menu Kategori adalah menu yang berisi submenu untuk memilih kategori barang.
+    </string>
+    <string name="about_3">
+        3. Menu Sampah adalah menu dimana pengguna dapat menjual sampah dengan jenis-jenis tertentu. dimana didalam ada submenu jual online sampah, jual offline sampah, harga sampah, dan riwayat.
+            - Jual online sampah adalah layanan dimana pengguna dapat menjual sampah dengan minimal 10kg dan kurir akan menjemputnya
+            - Harga sampah adalah harga kiloan sampah sesuai dengan jenis sampah
+            - Riwayat adalah riwayat penjualan sampah secara online
+    </string>
+    <string name="about_4">
+        4. Menu Profile adalah menu yang berisi tentang data pribadi, dan pengaturan akun
+    </string>
 </resources>
